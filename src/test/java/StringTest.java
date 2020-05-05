@@ -224,5 +224,19 @@ public class StringTest {
 
     }
 
+    @Test
+    public void testStringReplaceTrue() {
+        String s = "Java";
+        s.replace("a","e");
+        Assert.assertTrue("Jeve", true);
+    }
+
+    @Test
+    public void testStringReplaceFalse() {
+        String s = "Java";
+        s.replace("a","e");
+        Assert.assertFalse("Java", false);
+    }
+
 
 }
