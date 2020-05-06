@@ -1,7 +1,13 @@
+package test;
+
 import org.junit.Assert;
 import org.junit.Test;
-import test.Dummy;
 
+class Dummy {
+    public String toString() {
+        return "hello!";
+    }
+}
 
 public class StringTest {
 
@@ -88,7 +94,7 @@ public class StringTest {
 
         Assert.assertEquals("12345", String.valueOf(12345));
         Assert.assertEquals("true", String.valueOf(true));
-        Assert.assertEquals("test.Dummy@69b0fd6f", String.valueOf(new Dummy()));
+        Assert.assertEquals("hello!", String.valueOf(new Dummy()));
     }
 
     @Test(expected = NullPointerException.class)
