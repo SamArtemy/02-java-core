@@ -1,7 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.Date;
+import test.Dummy;
 
 
 public class StringTest {
@@ -86,9 +85,10 @@ public class StringTest {
 
     @Test
     public void testStringValueOf() {
+
         Assert.assertEquals("12345", String.valueOf(12345));
         Assert.assertEquals("true", String.valueOf(true));
-        Assert.assertEquals("Mon Jan 19 12:19:26 MSK 1970", String.valueOf(new Date(1588766615)));
+        Assert.assertEquals("test.Dummy@69b0fd6f", String.valueOf(new Dummy()));
     }
 
     @Test(expected = NullPointerException.class)
