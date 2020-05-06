@@ -13,53 +13,45 @@ public class StringTest {
         Assert.assertFalse("ABC" == new String("ABC"));
         Assert.assertFalse(new String("ABC") == new String("ABC"));
         Assert.assertFalse(new String("ABC").intern() == new String("ABC"));
-        Assert.assertTrue(new String("ABC") != new String("ABC").intern());
+        Assert.assertFalse(new String("ABC") == new String("ABC").intern());
         Assert.assertTrue(new String("ABC").intern() == new String("ABC").intern());
     }
 
 
     @Test
     public void testConcatenation() {
-        String a = null;
-        String b = null;
-        Assert.assertThat((a + b), is("nullnull"));
-        Assert.assertThat(("ABC" + b), is("ABCnull"));
-        Assert.assertThat((a + "ABC"), is("nullABC"));
+        Assert.assertThat((String)null + (String)null, is("nullnull"));
+        Assert.assertThat(("ABC" + null), is("ABCnull"));
+        Assert.assertThat(((String)null + "ABC"), is("nullABC"));
         Assert.assertThat(("ABC" + "ABC"), is("ABCABC"));
     }
 
 
     @Test
     public void testStringLength() {
-        String a = "ABC";
-        Assert.assertThat((a.length()), is(3));
+        Assert.assertThat(("ABC".length()), is(3));
     }
 
     @Test
     public void testStringIsEmpty() {
-        String a = "";
-        Assert.assertThat((a.isEmpty()), is(true));
+        Assert.assertThat(("".isEmpty()), is(true));
     }
 
     @Test
     public void testStringEqualsTrue() {
-        String a = "test";
-        String b = "test";
-        Assert.assertThat((a.equals(b)), is(true));
+        Assert.assertThat(("test".equals("test")), is(true));
     }
 
     @Test
     public void testStringEqualsFalse() {
-        String a = "test";
-        String b = "TEST";
-        Assert.assertThat((a.equals(b)), is(false));
+        Assert.assertThat(("test".equals("TEST")), is(false));
     }
 
     @Test
     public void testStringEqualsIgnoreCase() {
         String a = "test";
         String b = "TeSt";
-        Assert.assertThat((a.equalsIgnoreCase(b)), is(true));
+        Assert.assertThat(("test".equalsIgnoreCase("TeSt")), is(true));
     }
 
     @Test
@@ -68,11 +60,10 @@ public class StringTest {
         Assert.assertThat((m.toString()), is("[I@23fe1d71"));
     }
 
-    // I don't understand why the Expected: is "t" but: was "t"
-    //@Test
+    @Test
     public void testStringCharAtTrue() {
         String a = "test";
-        Assert.assertThat(a.charAt(0), is("t"));
+        Assert.assertThat(a.charAt(0), is('t'));
     }
 
     @Test
@@ -83,58 +74,50 @@ public class StringTest {
 
     @Test
     public void testStringStartsWithFalse() {
-        String a = "Learning Java";
-        Assert.assertFalse(a.startsWith("Java"));
+        Assert.assertFalse("Learning Java".startsWith("Java"));
     }
 
     @Test
     public void testStringEndsWithTrue() {
-        String a = "Learning Java Junior";
-        Assert.assertTrue(a.endsWith("or"));
+        Assert.assertTrue("Learning Java Junior".endsWith("or"));
     }
 
     @Test
     public void testStringEndsWithFalse() {
-        String a = "Learning Java Junior";
-        Assert.assertFalse(a.endsWith("Jun"));
+        Assert.assertFalse("Learning Java Junior".endsWith("Jun"));
     }
 
     @Test
     public void testStringContainsTrue() {
-        String a = "Learn about String API by unit testing the following String methods";
-        Assert.assertTrue(a.contains("by unit testing the following"));
+        Assert.assertTrue("Learn about String API by unit testing the following String methods".contains("by unit testing the following"));
     }
 
     @Test
     public void testStringContainsFalse() {
-        String a = "Learn about String API by unit testing the following String methods";
-        Assert.assertFalse(a.contains("concatenation"));
+        Assert.assertFalse("Learn about String API by unit testing the following String methods".contains("concatenation"));
     }
 
     @Test
     public void testStringConcat() {
-        String a = "Learn about String API by unit testing the following String methods";
-        String b = "JAVA";
-        Assert.assertThat((a.concat(b)), is("Learn about String API by unit testing the following String methodsJAVA"));
+        Assert.assertThat(("Learn about String API by unit testing the following String methods".concat("JAVA")),
+                is("Learn about String API by unit testing the following String methodsJAVA"));
     }
 
     @Test
     public void testStringValueOf() {
-        int i = 12345;
-        Assert.assertThat((String.valueOf(i)), is("12345"));
+        Assert.assertThat((String.valueOf(12345)), is("12345"));
     }
 
     @Test
     public void testStringValueOfBool() {
-        boolean b = true;
-        Assert.assertThat((String.valueOf(b)), is("true"));
+        Assert.assertThat((String.valueOf(true)), is("true"));
 
     }
 
     @Test
     public void testStringValueOfObj() {
-        Date date = new Date();
-        Assert.assertThat((String.valueOf(date)), is(date.toString()));
+        Date date = new Date(1588766615);
+        Assert.assertThat((String.valueOf(date)), is("Mon Jan 19 12:19:26 MSK 1970"));
     }
 
     // I dont now how testing null
