@@ -38,14 +38,14 @@ public class StringTest {
 
     @Test
     public void testStringEquals() {
-        Assert.assertEquals(true, "test".equals("test"));
-        Assert.assertEquals(false, "test".equals("TEST"));
+        Assert.assertTrue("test".equals("test"));
+        Assert.assertFalse("test".equals("TEST"));
     }
 
 
     @Test
     public void testStringEqualsIgnoreCase() {
-        Assert.assertEquals(true, "test".equalsIgnoreCase("TeSt"));
+        Assert.assertTrue("test".equalsIgnoreCase("TeSt"));
     }
 
     @Test
@@ -54,7 +54,7 @@ public class StringTest {
     }
 
     @Test
-    public void testStringCharAtTrue() {
+    public void testStringCharAt() {
         Assert.assertEquals('t', "test".charAt(0));
     }
 
@@ -66,13 +66,13 @@ public class StringTest {
 
 
     @Test
-    public void testStringEndsWithTrue() {
+    public void testStringEndsWith() {
         Assert.assertTrue("Learning Java Junior".endsWith("or"));
         Assert.assertFalse("Learning Java Junior".endsWith("Jun"));
     }
 
     @Test
-    public void testStringContainsTrue() {
+    public void testStringContains() {
         Assert.assertTrue("Learn about String API by unit testing the following String methods".contains("by unit testing the following"));
         Assert.assertFalse("Learn about String API by unit testing the following String methods".contains("concatenation"));
 
@@ -86,15 +86,14 @@ public class StringTest {
 
     @Test
     public void testStringValueOf() {
-        Date date = new Date(1588766615);
         Assert.assertEquals("12345", String.valueOf(12345));
         Assert.assertEquals("true", String.valueOf(true));
-        Assert.assertEquals("Mon Jan 19 12:19:26 MSK 1970", String.valueOf(date));
+        Assert.assertEquals("Mon Jan 19 12:19:26 MSK 1970", String.valueOf(new Date(1588766615)));
     }
 
     @Test(expected = NullPointerException.class)
     public void testStringValueOfNull() {
-        Assert.assertEquals(NullPointerException.class, String.valueOf(null));
+        String.valueOf(null);
     }
 
     @Test
