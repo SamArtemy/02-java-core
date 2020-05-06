@@ -84,12 +84,16 @@ public class StringTest {
                 "Learn about String API by unit testing the following String methods".concat("JAVA"));
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void testStringValueOf() {
         Date date = new Date(1588766615);
         Assert.assertEquals("12345", String.valueOf(12345));
         Assert.assertEquals("true", String.valueOf(true));
         Assert.assertEquals("Mon Jan 19 12:19:26 MSK 1970", String.valueOf(date));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testStringValueOfNull() {
         Assert.assertEquals(NullPointerException.class, String.valueOf(null));
     }
 
