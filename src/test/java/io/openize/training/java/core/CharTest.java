@@ -1,3 +1,5 @@
+package io.openize.training.java.core;
+
 import org.junit.Assert;
 import org.junit.Test;
 
