@@ -47,8 +47,8 @@ public class NumberClass {
         float value = (float) 123.45678;
         Assert.assertEquals(123.0, value, 123.45677947998047);
         Assert.assertEquals("123.45678", String.valueOf(value));
-        Assert.assertEquals(123.45677947998047, value, 1e-8);
-        Assert.assertEquals(123.45677947998047, value, 1e-8);
+        Assert.assertEquals(370.3703308105469, value * 3, 0.0f);
+        Assert.assertEquals(12.345678329467773, value / 10, 0.0f);
         Assert.assertTrue(Float.isInfinite(value / 0));
     }
 
@@ -57,35 +57,51 @@ public class NumberClass {
         double value = (double) 123.45678;
         Assert.assertEquals(123.0, value, 123.45678);
         Assert.assertEquals("123.45678", String.valueOf(value));
-        Assert.assertEquals(123.45678, value, 1e-8);
-        Assert.assertEquals(123.45678, value, 1e-8);
+        Assert.assertEquals(370.37034, value * 3, 0.0f);
+        Assert.assertEquals(12.345678, value / 10, 0.0f);
         Assert.assertTrue(Double.isInfinite(value / 0));
     }
 
     @Test
     public void testIntegerObject() {
         Assert.assertEquals(new Integer((int) 123.45678), Integer.valueOf((int) 123.45678));
+        Assert.assertEquals( "123", Integer.toString((int) 123.45678));
+        Assert.assertEquals(new Integer( 369), Integer.valueOf((int) 123.45678 * 3));
+        Assert.assertEquals(new Integer( 12), Integer.valueOf((int) 123.45678 / 10));
     }
 
     @Test
     public void testShortObject() {
+        short value = (short) 123.45678;
         Assert.assertEquals(new Short((short) 123.45678), Short.valueOf((short) 123.45678));
+        Assert.assertEquals( "123", Short.toString((short) 123.45678));
+        Assert.assertTrue(369 ==  new Short(value) * 3);
+        Assert.assertTrue(12 == new Short(value) / 10);
     }
 
     @Test
     public void testByteObject() {
         Assert.assertEquals(new Byte((byte) 123.45678), Byte.valueOf((byte) 123.45678));
+        Assert.assertEquals( "123", Byte.toString((byte) 123.45678));
+        Assert.assertEquals(new Byte((byte)370),  new Byte((byte) (123.45678 * 3)));
+        Assert.assertTrue(12 == new Byte((byte) (123 / 10)));
     }
 
     @Test
     public void testLongObject() {
         Assert.assertEquals(new Long((long) 123.45678), Long.valueOf((long) 123.45678));
+        Assert.assertEquals( "123", Long.toString((long) 123.45678));
+        Assert.assertEquals(new Long(370), new Long((long)(123.45678 * 3)));
+        Assert.assertTrue(12.0 == new Long((long)(123 / 10)));
     }
 
     @Test
     public void testFloatObject() {
         Float value = new Float(123.45678);
         Assert.assertEquals(new Float(123.45678), Float.valueOf(value));
+        Assert.assertEquals( "123.0", Float.toString((long) 123.45678));
+        Assert.assertEquals(new Float(370.37033),   new Float((float) (123.45678 * 3)));
+        Assert.assertTrue(12.0 == new Float((float) (123 / 10)));
         Assert.assertTrue(Float.isInfinite(value / 0));
 
     }
@@ -94,53 +110,55 @@ public class NumberClass {
     public void testDoubleObject() {
         Double value = new Double(123.45678);
         Assert.assertEquals(new Double(123.45678), Double.valueOf(value));
+        Assert.assertEquals( "123.0", Double.toString((long) 123.45678));
+        Assert.assertEquals(new Double(370.37034), new Double(123.45678 * 3));
+        Assert.assertEquals(new Double(12.345678), new Double(123.45678 / 10));
         Assert.assertTrue(Double.isInfinite(value / 0));
     }
 
     @Test(expected = ArithmeticException.class)
     public void testDivisionZeroShortType() {
-        Assert.assertNotNull(((short) 123.45678) / 0);
+       int shouldThrowException = (short) 123.45678 / 0;
     }
 
     @Test(expected = ArithmeticException.class)
     public void testDivisionZeroIntType() {
-        Assert.assertNotNull(((int) 123.45678) / 0);
+
+        int shouldThrowException = (int) 123.45678 / 0;
     }
 
     @Test(expected = ArithmeticException.class)
     public void testDivisionZeroByteType() {
-        Assert.assertNotNull(((byte) 123.45678) / 0);
+        int shouldThrowException = (byte) 123.45678 / 0;
     }
 
     @Test(expected = ArithmeticException.class)
     public void testDivisionZeroLongType() {
-        Assert.assertNotNull(((long) 123.45678) / 0);
+        long shouldThrowException = (long) 123.45678 / 0;
     }
 
-    // https://stackoverflow.com/questions/11526432/java-instantiate-short-object-in-java
-    // I'm not sure I did it right 4 tests
     @Test(expected = ArithmeticException.class)
     public void testDivisionZeroShortObject() {
-        Short value = new Short((short) 123.4567);
-        Assert.assertNotNull(value / 0);
+        Short value = new Short((short)(123.4567/0));
+        int shouldThrowException = value / 0 ;
     }
 
     @Test(expected = ArithmeticException.class)
     public void testDivisionZeroIntObject() {
         Integer value = new Integer((int) 123.4567);
-        Assert.assertNotNull(value / 0);
+        int shouldThrowException = value / 0 ;
     }
 
     @Test(expected = ArithmeticException.class)
     public void testDivisionZeroByteObject() {
         Byte value = new Byte((byte) 123.4567);
-        Assert.assertNotNull(value / 0);
+        int shouldThrowException = value / 0 ;
     }
 
     @Test(expected = ArithmeticException.class)
     public void testDivisionZeroLongObject() {
         Long value = new Long((long) 123.4567);
-        Assert.assertNotNull(value / 0);
+        long shouldThrowException = value / 0 ;
     }
 
 
