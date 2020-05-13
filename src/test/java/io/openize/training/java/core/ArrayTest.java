@@ -13,7 +13,7 @@ public class ArrayTest {
     }
 
     @Test
-    public void testArray() {
+    public void testArrayAddElements() {
         int[] array = new int[3];
         array[0] = 1;
         array[1] = 2;
@@ -28,14 +28,13 @@ public class ArrayTest {
 
 
     @Test
-    public void test() {
+    public void testArrayToString() {
         int[][] m = {
                 {1, 2, 3},
                 {1, 2,},
                 {1},
         };
-        System.out.print(Arrays.deepToString(m));
-
+        Assert.assertEquals("[[1, 2, 3], [1, 2], [1]]", Arrays.deepToString(m));
 
     }
 }
