@@ -1,29 +1,41 @@
 package io.openize.training.java.core;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class ArrayTest {
     @Test
-    public void testCreateArray(){
-        int[] array = {1,2,3};
-        int[] integer = new int[3];
-        Arrays.asList(1, 2, 3);
-        List<Integer> list = Arrays.asList(1, 2, 3);
-        Integer[] arrayInt = list.toArray(Integer[]::new);
+    public void testArrayInt() {
+        int[] array = {1, 2, 3};
+        Assert.assertArrayEquals(new int[]{1, 2, 3}, array);
     }
 
     @Test
-    public void test(){
+    public void testArray() {
+        int[] array = new int[3];
+        array[0] = 1;
+        array[1] = 2;
+        array[2] = 3;
+        Assert.assertArrayEquals(new int[]{1, 2, 3}, array);
+    }
+
+    @Test
+    public void testCreateArray() {
+        Arrays.asList(1, 2, 3);
+    }
+
+
+    @Test
+    public void test() {
         int[][] m = {
                 {1, 2, 3},
                 {1, 2,},
                 {1},
         };
+        System.out.print(Arrays.deepToString(m));
 
-        System.out.print(m.toString());
 
     }
 }
