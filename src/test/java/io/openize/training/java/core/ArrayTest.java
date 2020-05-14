@@ -6,8 +6,10 @@ import org.junit.Test;
 import java.util.Arrays;
 
 public class ArrayTest {
+
+
     @Test
-    public void testArrayInt() {
+    public void testArrayInitializer() {
         int[] array = {1, 2, 3};
         Assert.assertArrayEquals(new int[]{1, 2, 3}, array);
     }
@@ -20,12 +22,6 @@ public class ArrayTest {
         array[2] = 3;
         Assert.assertArrayEquals(new int[]{1, 2, 3}, array);
     }
-
-    @Test
-    public void testCreateArray() {
-        Arrays.asList(1, 2, 3);
-    }
-
 
     @Test
     public void testArrayToString() {
