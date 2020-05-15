@@ -8,6 +8,7 @@ import java.util.*;
 public class ListTest {
 
     private static final int SIZE = 10_000_000;
+    private static final int COUNT = 1000;
 
     @Test
     public void loadTest_Add_ArrayList() {
@@ -55,7 +56,7 @@ public class ListTest {
         getFirstElementList(list);
         timer.stop();
 
-        System.out.println("ArrayList (get FirstElement): " + (timer.getNanoTime() / 1000));
+        System.out.println("ArrayList (get FirstElement): " + (timer.getNanoTime() / COUNT));
     }
 
     @Test
@@ -68,7 +69,7 @@ public class ListTest {
         getFirstElementList(list);
         timer.stop();
 
-        System.out.println("Linked (get FirstElement): " + (timer.getNanoTime() / 1000));
+        System.out.println("Linked (get FirstElement): " + (timer.getNanoTime() / COUNT));
     }
 
     @Test
@@ -81,7 +82,7 @@ public class ListTest {
         getFirstElementList(list);
         timer.stop();
 
-        System.out.println("Vector (get FirstElement): " + (timer.getNanoTime() / 1000));
+        System.out.println("Vector (get FirstElement): " + (timer.getNanoTime() / COUNT));
     }
 
     @Test
@@ -94,7 +95,7 @@ public class ListTest {
         getMiddleElementList(list);
         timer.stop();
 
-        System.out.println("ArrayList (get MiddleElement): " + (timer.getNanoTime() / 1000));
+        System.out.println("ArrayList (get MiddleElement): " + (timer.getNanoTime() / COUNT));
     }
 
     @Test
@@ -107,7 +108,7 @@ public class ListTest {
         getMiddleElementList(list);
         timer.stop();
 
-        System.out.println("Linked (get MiddleElement): " + (timer.getNanoTime() / 1000));
+        System.out.println("Linked (get MiddleElement): " + (timer.getNanoTime() / COUNT));
     }
 
     @Test
@@ -120,7 +121,7 @@ public class ListTest {
         getMiddleElementList(list);
         timer.stop();
 
-        System.out.println("Vector (get MiddleElement): " + (timer.getNanoTime() / 1000));
+        System.out.println("Vector (get MiddleElement): " + (timer.getNanoTime() / COUNT));
     }
 
     @Test
@@ -133,7 +134,7 @@ public class ListTest {
         getLastElementList(list);
         timer.stop();
 
-        System.out.println("ArrayList (get LastElement): " + (timer.getNanoTime() / 1000));
+        System.out.println("ArrayList (get LastElement): " + (timer.getNanoTime() / COUNT));
     }
 
     @Test
@@ -146,7 +147,7 @@ public class ListTest {
         getLastElementList(list);
         timer.stop();
 
-        System.out.println("Linked (get LastElement): " + (timer.getNanoTime() / 1000));
+        System.out.println("Linked (get LastElement): " + (timer.getNanoTime() / COUNT));
     }
 
     @Test
@@ -159,28 +160,27 @@ public class ListTest {
         getLastElementList(list);
         timer.stop();
 
-        System.out.println("Vector (get LastElement): " + (timer.getNanoTime() / 1000));
+        System.out.println("Vector (get LastElement): " + (timer.getNanoTime() / COUNT));
     }
 
     private void getLastElementList(List<Integer> list) {
 
         int last = list.size()-1;
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < COUNT; i++) {
             list.get(last);
         }
     }
-
-
+    
     private void getMiddleElementList(List<Integer> list) {
 
         int middle = list.size()/2;
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < COUNT; i++) {
             list.get(middle);
         }
     }
 
     private void getFirstElementList(List<Integer> list) {
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < COUNT; i++) {
             list.get(0);
         }
     }
