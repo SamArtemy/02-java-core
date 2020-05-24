@@ -165,15 +165,15 @@ public class ListTest {
 
     private void getLastElementList(List<Integer> list) {
 
-        int last = list.size()-1;
+        int last = list.size() - 1;
         for (int i = 0; i < COUNT; i++) {
             list.get(last);
         }
     }
-    
+
     private void getMiddleElementList(List<Integer> list) {
 
-        int middle = list.size()/2;
+        int middle = list.size() / 2;
         for (int i = 0; i < COUNT; i++) {
             list.get(middle);
         }
