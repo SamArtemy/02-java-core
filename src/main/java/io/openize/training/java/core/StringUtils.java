@@ -1,24 +1,28 @@
 package io.openize.training.java.core;
 
-import java.util.Scanner;
-
 class StringUtils {
 
-    public static void main(String[] arg) {
+    public StringBuilder repeat(String text, int count) {
         StringBuilder sb = new StringBuilder();
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter a text");
-        try {
-            String text = in.next();
-            Integer count = in.nextInt();
-            for (int i = 0; i < count; i++) {
-                sb.append(text);
-            }
-            System.out.println(sb.toString());
-        } catch (IllegalArgumentException e) {
-            System.err.print(e.getMessage());
-            System.err.print("Exception was processed. Program continues");
-
+        for (int i = 0; i < count; i++) {
+            sb.append(text);
         }
+        return sb;
     }
+
+    public String removeChars(String text, String deleteText) {
+        for (char c : deleteText.toCharArray()) {
+            text = text.replace(c, ' ');
+        }
+        return text;
+    }
+
+    public String toUpperCase(String text) {
+        for (char c : text.toCharArray()) {
+            text = text.toUpperCase();
+        }
+        return text;
+
+    }
+
 }
