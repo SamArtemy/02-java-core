@@ -9,15 +9,15 @@ public class StringUtilsTest {
     @Test
     public void testRepeatMethod() {
         StringUtils stringUtils = new StringUtils();
-        StringBuilder res = stringUtils.repeat("do", 3);
-        Assert.assertEquals(new StringBuilder("dododo").toString(), res.toString());
+        String res = stringUtils.repeat("do", 3);
+        Assert.assertEquals("dododo", res);
     }
 
     @Test
     public void testRemoveSymbolMethod() {
         StringUtils stringUtils = new StringUtils();
-        String res = stringUtils.removeChars("dad", "a");
-        Assert.assertEquals("d d", res);
+        String res = stringUtils.removeChars("dad", 'a');
+        Assert.assertEquals("dd", res);
     }
 
     @Test
@@ -26,5 +26,5 @@ public class StringUtilsTest {
         String res = stringUtils.toUpperCase("dad");
         Assert.assertEquals("DAD", res);
     }
-    
+
 }
