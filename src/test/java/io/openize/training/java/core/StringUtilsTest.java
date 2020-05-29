@@ -5,12 +5,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class StringUtilsTest {
-    //not working
+
     @Test
     public void testRepeatMethod() {
         StringUtils stringUtils = new StringUtils();
         StringBuilder res = stringUtils.repeat("do", 3);
-        Assert.assertEquals(new StringBuilder("dododo"), res);
+        Assert.assertEquals(new StringBuilder("dododo").toString(), res.toString());
     }
 
     @Test
@@ -26,6 +26,5 @@ public class StringUtilsTest {
         String res = stringUtils.toUpperCase("dad");
         Assert.assertEquals("DAD", res);
     }
-
-
+    
 }
