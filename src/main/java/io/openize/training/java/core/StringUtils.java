@@ -1,9 +1,9 @@
 package io.openize.training.java.core;
 
-class StringUtils {
+public class StringUtils {
 
 
-    public String repeat(String text, int count) {
+    String repeat(String text, int count) {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < count; i++) {
@@ -12,7 +12,7 @@ class StringUtils {
         return sb.toString();
     }
 
-    public String removeChars(String text, char symbol) {
+    String removeChars(String text, char symbol) {
         StringBuilder sb = new StringBuilder();
 
         char[] rmString = text.toCharArray();
@@ -25,11 +25,15 @@ class StringUtils {
         return sb.toString();
     }
 
-
-    public String toUpperCase(String text) {
-        text = text.toUpperCase();
-        return text;
+    String toUpperCase(String text) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            sb.append(String.valueOf(c).toUpperCase());
+        }
+        return sb.toString();
     }
+
 }
 
 
