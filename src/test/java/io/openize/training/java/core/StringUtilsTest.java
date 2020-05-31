@@ -16,8 +16,8 @@ public class StringUtilsTest {
     @Test
     public void testRemoveSymbolMethod() {
         StringUtils stringUtils = new StringUtils();
-        String res = stringUtils.removeChars("dad", 'a');
-        Assert.assertEquals("dd", res);
+        String res = stringUtils.removeChars("United", "ntd");
+        Assert.assertEquals("Uie", res);
     }
 
     @Test
