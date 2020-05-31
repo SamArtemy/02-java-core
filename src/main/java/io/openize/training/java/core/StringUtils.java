@@ -12,20 +12,21 @@ class StringUtils {
         return sb.toString();
     }
 
-    String removeChars(String text, String symbols) {
+    public String removeChars(String text, CharSequence symbols) {
         StringBuilder sb = new StringBuilder();
 
-        char[] rmString = text.toCharArray();
-        char[] rmSymbol = symbols.toCharArray();
-        for (int i = 0; i < rmString.length; i++) {
+        for (int i = 0; i < text.length(); i++) {
+            char newText = text.charAt(i);
             boolean shouldBeRemoved = false;
             for (int j = 0; j < symbols.length(); j++) {
-                if (rmString[i] == rmSymbol[j]) {
+                char newSymbols = symbols.charAt(j);
+                if (newText == newSymbols) {
                     shouldBeRemoved = true;
+                    text.contains(symbols);
                 }
             }
             if (shouldBeRemoved == false) {
-                sb.append(rmString[i]);
+                sb.append(newText);
             }
         }
         return sb.toString();
