@@ -16,17 +16,17 @@ class StringUtils {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < text.length(); i++) {
-            char newText = text.charAt(i);
+            char symbol = text.charAt(i);
             boolean shouldBeRemoved = false;
             for (int j = 0; j < symbols.length(); j++) {
-                char newSymbols = symbols.charAt(j);
-                if (newText == newSymbols) {
+                char deleteSymbol = symbols.charAt(j);
+                if (symbol == deleteSymbol) {
                     shouldBeRemoved = true;
                     text.contains(symbols);
                 }
             }
             if (shouldBeRemoved == false) {
-                sb.append(newText);
+                sb.append(symbol);
             }
         }
         return sb.toString();
