@@ -22,7 +22,7 @@ class StringUtils {
                 char deleteSymbol = symbols.charAt(j);
                 if (symbol == deleteSymbol) {
                     shouldBeRemoved = true;
-                    text.contains(symbols);
+                    break;
                 }
             }
             if (shouldBeRemoved == false) {

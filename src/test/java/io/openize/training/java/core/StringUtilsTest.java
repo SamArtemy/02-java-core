@@ -28,7 +28,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testRemoveSymbolMethodw() {
+    public void testRemoveSymbolMethodRepeatSymbols() {
         StringUtils stringUtils = new StringUtils();
         String res = stringUtils.removeChars("tttt", "t");
         Assert.assertEquals("", res);
