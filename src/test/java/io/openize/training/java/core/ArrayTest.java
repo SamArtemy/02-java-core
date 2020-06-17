@@ -33,4 +33,13 @@ public class ArrayTest {
         Assert.assertEquals("[[1, 2, 3], [1, 2], [1]]", Arrays.deepToString(m));
 
     }
+
+    @Test
+    public void testArrayMaxElement(){
+        FindMaximumSolution findMaximumSolution = new FindMaximumSolution();
+        int[] array = {1, 2, 3};
+
+        Assert.assertEquals(3,findMaximumSolution.findMax(array));
+
+    }
 }
