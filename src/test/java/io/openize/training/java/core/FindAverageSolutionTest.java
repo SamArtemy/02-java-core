@@ -35,11 +35,11 @@ public class FindAverageSolutionTest {
         Assert.assertEquals(0.0, findAverageSolution.findAverage(array), 0);
     }
 
-    @Test()
+    @Test(expected = IllegalArgumentException.class)
     public void testArrayAverageEmptyElement(){
         double[] array = {};
 
-        Assert.assertEquals(Double.NaN, findAverageSolution.findAverage(array), 0);
+        findAverageSolution.findAverage(array);
     }
 
 
