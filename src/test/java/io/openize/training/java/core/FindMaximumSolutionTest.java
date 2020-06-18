@@ -5,9 +5,11 @@ import org.junit.Test;
 
 public class FindMaximumSolutionTest {
 
+    FindMaximumSolution findMaximumSolution = new FindMaximumSolution();
+
+
     @Test
     public void testArrayMaxElement() {
-        FindMaximumSolution findMaximumSolution = new FindMaximumSolution();
         int[] array = {1, 2, 3};
 
         Assert.assertEquals(3, findMaximumSolution.findMax(array));
@@ -15,7 +17,6 @@ public class FindMaximumSolutionTest {
 
     @Test
     public void testArrayNegativeMaxElement() {
-        FindMaximumSolution findMaximumSolution = new FindMaximumSolution();
         int[] array = {-1, -2, -3};
 
         Assert.assertEquals(-1, findMaximumSolution.findMax(array));
@@ -23,7 +24,6 @@ public class FindMaximumSolutionTest {
 
     @Test
     public void testArrayZeroAlleMaxElement() {
-        FindMaximumSolution findMaximumSolution = new FindMaximumSolution();
         int[] array = {0, 0, 0};
 
         Assert.assertEquals(0, findMaximumSolution.findMax(array));
@@ -31,9 +31,23 @@ public class FindMaximumSolutionTest {
 
     @Test(expected = NullPointerException.class)
     public void testArrayNullMaxElement() {
-        FindMaximumSolution findMaximumSolution = new FindMaximumSolution();
         int[] array = null;
 
         findMaximumSolution.findMax(array);
     }
+
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void testArrayEmpty() {
+        int[] array = {};
+
+        findMaximumSolution.findMax(array);
+    }
+
+    @Test
+    public void testArrayUnsortedeMaxElement() {
+        int[] array = {4, 6, 1, 5, 8};
+
+        Assert.assertEquals(8, findMaximumSolution.findMax(array));
+    }
+
 }
