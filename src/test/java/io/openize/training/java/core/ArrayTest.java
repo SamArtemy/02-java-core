@@ -35,11 +35,11 @@ public class ArrayTest {
     }
 
     @Test
-    public void testArrayMaxElement(){
+    public void testArrayMaxElement() {
         FindMaximumSolution findMaximumSolution = new FindMaximumSolution();
         int[] array = {1, 2, 3};
 
-        Assert.assertEquals(3,findMaximumSolution.findMax(array));
+        Assert.assertEquals(3, findMaximumSolution.findMax(array));
 
     }
 }

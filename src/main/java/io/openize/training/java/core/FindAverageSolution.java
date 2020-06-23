@@ -11,8 +11,7 @@ public class FindAverageSolution implements FindAverageProblem {
             }
             double average = total / nums.length;
             return average;
-        }
-        else {
+        } else {
             throw new IllegalArgumentException("Array is empty");
         }
 

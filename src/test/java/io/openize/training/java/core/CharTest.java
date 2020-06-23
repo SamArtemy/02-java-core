@@ -14,21 +14,22 @@ public class CharTest {
     }
 
     @Test
-    public void testCharDigit(){
+    public void testCharDigit() {
         Assert.assertEquals(3, Character.digit('3', 10));
         Assert.assertEquals(10, Character.digit('A', 16));
     }
 
     @Test
-    public void testCharForDigit(){
+    public void testCharForDigit() {
         Assert.assertEquals('3', Character.forDigit(3, 10));
         Assert.assertEquals('e', Character.forDigit(14, 16));
 
     }
+
     @Test
-    public void testCharConcatenation(){
+    public void testCharConcatenation() {
         Assert.assertEquals(131, 'A' + 'B');
         Assert.assertEquals("AB", 'A' + "B");
-        Assert.assertEquals(77, ('A' + '\t' + '\u0003' ));
+        Assert.assertEquals(77, ('A' + '\t' + '\u0003'));
     }
 }
