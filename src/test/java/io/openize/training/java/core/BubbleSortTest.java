@@ -65,12 +65,18 @@ public class BubbleSortTest {
     @Test
     public void loadTest_BubbleSort_Array() {
         StopWatch timer = new StopWatch();
+        precondition(LOAD_TEST_ARRAY);
         timer.start();
         for (int i = 0; i < LOAD_TEST_ITER_COUNT; i++) {
             bubbleSort.sort(LOAD_TEST_ARRAY);
         }
         timer.stop();
+        System.out.println("BubbleSort: " + (timer.getNanoTime() / 1000) + " ns");
+    }
 
-        System.out.println("BubbleSort: " + (timer.getNanoTime() / LOAD_TEST_ITER_COUNT) + " ns");
+    private int[] precondition(int[] array) {
+        for (int i = 0; i < array.length; i++)
+            array[i] = (int) (Math.random() * 1000);
+        return array;
     }
 }
