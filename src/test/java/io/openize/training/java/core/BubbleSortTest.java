@@ -19,6 +19,9 @@ public class BubbleSortTest {
     int[] arraySingleElement = {6};
     int[] arrayRepeatElements = {6, 6, 6};
 
+    int[] LOAD_TEST_ARRAY = new int[1000];
+    int LOAD_TEST_ITER_COUNT = 1000;
+
     @Test
     public void sortArrayPositiveElements() {
         Assert.assertEquals("[6, 57, 64, 65]", Arrays.toString(bubbleSort.sort(arrayPositiveElements)));
@@ -60,62 +63,14 @@ public class BubbleSortTest {
     }
 
     @Test
-    public void loadTest_SortPositiveElements_Array() {
+    public void loadTest_BubbleSort_Array() {
         StopWatch timer = new StopWatch();
         timer.start();
-        bubbleSort.sort(arrayPositiveElements);
+        for (int i = 0; i < LOAD_TEST_ITER_COUNT; i++) {
+            bubbleSort.sort(LOAD_TEST_ARRAY);
+        }
         timer.stop();
 
-        System.out.println("SortPositiveElements: " + (timer.getNanoTime()));
-    }
-
-    @Test
-    public void loadTest_SortNegativeElements_Array() {
-        StopWatch timer = new StopWatch();
-        timer.start();
-        bubbleSort.sort(arrayNegativeElements);
-        timer.stop();
-
-        System.out.println("SortNegativeElements: " + (timer.getNanoTime()));
-    }
-
-    @Test
-    public void loadTest_SortMixedElements_Array() {
-        StopWatch timer = new StopWatch();
-        timer.start();
-        bubbleSort.sort(arrayMixedElements);
-        timer.stop();
-
-        System.out.println("SortMixedElements: " + (timer.getNanoTime()));
-    }
-
-    @Test
-    public void loadTest_SortZeroElements_Array() {
-        StopWatch timer = new StopWatch();
-        timer.start();
-        bubbleSort.sort(arrayZeroElements);
-        timer.stop();
-
-        System.out.println("SortZeroElements: " + (timer.getNanoTime()));
-    }
-
-    @Test
-    public void loadTest_SortSingleElements_Array() {
-        StopWatch timer = new StopWatch();
-        timer.start();
-        bubbleSort.sort(arraySingleElement);
-        timer.stop();
-
-        System.out.println("SortSingleElement: " + (timer.getNanoTime()));
-    }
-
-    @Test
-    public void loadTest_SortRepeatElements_Array() {
-        StopWatch timer = new StopWatch();
-        timer.start();
-        bubbleSort.sort(arrayRepeatElements);
-        timer.stop();
-
-        System.out.println("SortRepeatElements: " + (timer.getNanoTime()));
+        System.out.println("BubbleSort: " + (timer.getNanoTime() / LOAD_TEST_ITER_COUNT) + " ns");
     }
 }
