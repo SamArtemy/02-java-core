@@ -29,7 +29,7 @@ public class QuickSort implements ArraySort {
                     j--;
                 }
             }
-        } else new IllegalArgumentException("end");
+        } else new IllegalArgumentException("Array is null/empty or low < high");
         return nums;
     }
 }

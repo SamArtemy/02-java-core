@@ -16,14 +16,13 @@ public class QuickSortTest {
     int LOAD_TEST_ITER_COUNT = 1000;
 
 
-
     @Test
     public void sortArray() {
         Assert.assertEquals("[6, 57, 64, 65]", Arrays.toString(quickSort.sort(arrayPositiveElements)));
     }
 
     @Test
-    public void loadTest_QuickSort_Array(){
+    public void loadTest_QuickSort_Array() {
         StopWatch timer = new StopWatch();
         helpers.addRandomElementsInArray(LOAD_TEST_ARRAY);
         timer.start();
@@ -33,7 +32,6 @@ public class QuickSortTest {
         timer.stop();
         System.out.println("QuickSort: " + (timer.getNanoTime() / 1000) + " ns");
     }
-
 
 
 }
