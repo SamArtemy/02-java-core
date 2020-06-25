@@ -1,5 +1,6 @@
 package io.openize.training.java.core;
 
+import io.openize.training.java.core.utils.Helpers;
 import org.apache.commons.lang3.time.StopWatch;
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,6 +10,7 @@ import java.util.Arrays;
 public class BubbleSortTest {
 
     BubbleSort bubbleSort = new BubbleSort();
+    Helpers helpers = new Helpers();
 
     int[] arrayPositiveElements = {6, 65, 64, 57};
     int[] arrayNegativeElements = {-6, -65, -64, -57};
@@ -65,7 +67,7 @@ public class BubbleSortTest {
     @Test
     public void loadTest_BubbleSort_Array() {
         StopWatch timer = new StopWatch();
-        precondition(LOAD_TEST_ARRAY);
+        helpers.addRandomElementsInArray(LOAD_TEST_ARRAY);
         timer.start();
         for (int i = 0; i < LOAD_TEST_ITER_COUNT; i++) {
             bubbleSort.sort(LOAD_TEST_ARRAY);
@@ -74,9 +76,5 @@ public class BubbleSortTest {
         System.out.println("BubbleSort: " + (timer.getNanoTime() / 1000) + " ns");
     }
 
-    private int[] precondition(int[] array) {
-        for (int i = 0; i < array.length; i++)
-            array[i] = (int) (Math.random() * 1000);
-        return array;
-    }
+
 }
