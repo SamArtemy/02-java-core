@@ -73,7 +73,7 @@ public class BubbleSortTest {
             bubbleSort.sort(LOAD_TEST_ARRAY);
         }
         timer.stop();
-        System.out.println("BubbleSort: " + (timer.getNanoTime() / 1000) + " ns");
+        System.out.println("BubbleSort: " + (timer.getNanoTime() / LOAD_TEST_ITER_COUNT) + " ns");
     }
 
 

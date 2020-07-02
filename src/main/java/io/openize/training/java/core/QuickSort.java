@@ -4,7 +4,7 @@ public class QuickSort implements ArraySort {
 
     @Override
     public int[] sort(int[] nums) {
-        int low = 0;
+        int low = nums.length/2;
         int high = nums.length - 1;
         if (nums.length != 0 && low < high) {
 

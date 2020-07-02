@@ -30,7 +30,7 @@ public class QuickSortTest {
             quickSort.sort(LOAD_TEST_ARRAY);
         }
         timer.stop();
-        System.out.println("QuickSort: " + (timer.getNanoTime() / 1000) + " ns");
+        System.out.println("QuickSort: " + (timer.getNanoTime() / LOAD_TEST_ITER_COUNT) + " ns");
     }
 
 
