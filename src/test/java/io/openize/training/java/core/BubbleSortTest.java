@@ -68,11 +68,11 @@ public class BubbleSortTest {
 
     @Test
     public void loadTest_BubbleSort_Array() {
+        BubbleSort bubbleSort = new BubbleSort();
         StopWatch timer = new StopWatch();
-        helpers.createListofRandomArrays(LOAD_LIST_ARRAYS, LOAD_TEST_ARRAY);
         timer.start();
         for (int i = 0; i < LOAD_TEST_ITER_COUNT; i++) {
-            bubbleSort.sort(LOAD_LIST_ARRAYS[i]);
+            bubbleSort.sort(helpers.addRandomElementsInArray(LOAD_TEST_ARRAY));
         }
         timer.stop();
         System.out.println("BubbleSort: " + (timer.getNanoTime() / LOAD_TEST_ITER_COUNT) + " ns");
