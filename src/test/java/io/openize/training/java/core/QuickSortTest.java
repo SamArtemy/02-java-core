@@ -13,6 +13,7 @@ public class QuickSortTest {
 
     int[] arrayPositiveElements = {6, 65, 64, 57};
     int[] LOAD_TEST_ARRAY = new int[1000];
+    int[][] LOAD_LIST_ARRAYS = new int[1000][1000];
     int LOAD_TEST_ITER_COUNT = 1000;
 
 
@@ -24,15 +25,27 @@ public class QuickSortTest {
     @Test
     public void loadTest_QuickSort_Array() {
         StopWatch timer = new StopWatch();
-        helpers.addRandomElementsInArray(LOAD_TEST_ARRAY);
+        helpers.createListofRandomArrays(LOAD_LIST_ARRAYS, LOAD_TEST_ARRAY);
         timer.start();
         for (int i = 0; i < LOAD_TEST_ITER_COUNT; i++) {
-            quickSort.sort(LOAD_TEST_ARRAY);
+            quickSort.sort(LOAD_LIST_ARRAYS[i]);
         }
         timer.stop();
         System.out.println("QuickSort: " + (timer.getNanoTime() / LOAD_TEST_ITER_COUNT) + " ns");
     }
 
+    @Test
+    public void loadTest_BubbleSort_Array() {
+        BubbleSort bubbleSort = new BubbleSort();
+        StopWatch timer = new StopWatch();
+        helpers.createListofRandomArrays(LOAD_LIST_ARRAYS, LOAD_TEST_ARRAY);
+        timer.start();
+        for (int i = 0; i < LOAD_TEST_ITER_COUNT; i++) {
+            bubbleSort.sort(LOAD_LIST_ARRAYS[i]);
+        }
+        timer.stop();
+        System.out.println("BubbleSort: " + (timer.getNanoTime() / LOAD_TEST_ITER_COUNT) + " ns");
+    }
+
 
 }
-

@@ -4,7 +4,7 @@ public class QuickSort implements ArraySort {
 
     @Override
     public int[] sort(int[] nums) {
-        int low = nums.length/2;
+        int low = 0;
         int high = nums.length - 1;
         if (nums.length != 0 && low < high) {
 
@@ -29,7 +29,7 @@ public class QuickSort implements ArraySort {
                     j--;
                 }
             }
-        } else new IllegalArgumentException("Array is null/empty or low < high");
+        } else throw new IllegalArgumentException ("Array is null/empty or low < high");
         return nums;
     }
 }
